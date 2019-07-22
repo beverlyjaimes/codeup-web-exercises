@@ -27,8 +27,8 @@ a {
 }
 .top-nav {
     background: var(--light-bg);
-    width: 100%;
     position: fixed;
+    width: 100%;
     z-index: 1000;
 
 }
@@ -36,14 +36,18 @@ a {
     list-style-type: none;
     padding: 0;
     margin: 0;
+
 }
 .nav-link {
     color: var(--main-link-color);
     font-weight: bold;
     text-decoration: none;
     float: left;
-    padding: 1.5em;
+}
+
+.nav-item {
     display: inline-block;
+    padding: 1.5em;
 }
 .nav-link:hover {
     color: var(--link-color);
@@ -93,12 +97,12 @@ a {
  }
 .timeline {
     float:left;
-    margin: .5em;
+    margin: 0 .5em;
     width: calc(50% - 1em);
 }
 .who-to-follow {
-    float: right;
-    margin: .5em;
+    float: left;
+    margin: 0 .5em;
     width: calc(25% - 1em);
 }
 .container {
@@ -117,7 +121,7 @@ a {
     margin-top: 1.33em;
 }
 .media-body {
-    float: left;
+    float: right;
     width: calc(100% - 50px);
 }
 .profile-items {
