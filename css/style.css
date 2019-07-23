@@ -3,6 +3,7 @@ header, h2, thead {
     color: rgba(33, 126, 106, 0.5);
     text-decoration:underline;
     background-color: ghostwhite;
+    border: 2px solid;
 }
 /*changes background and body*/
 body {
@@ -25,7 +26,7 @@ ol{
     list-style:upper-roman;
     color:ghostwhite;
     background: rgba(33, 126, 106, 0.5);
-    list-style-position: inside;
+    list-style-position:inside;
 }
 /*changes header and main*/
 .center {
@@ -52,5 +53,10 @@ a:hover {
 
 img:hover {
     opacity: .8;
-    border: 1px;
+    border: 1px solid;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.pointer {
+    cursor: pointer;
 }

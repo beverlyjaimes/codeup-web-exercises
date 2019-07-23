@@ -1,0 +1,53 @@
+body {
+    background-color: lightgray;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+
+}
+nav {
+    background: black;
+    font-weight: bold;
+    color: white;
+    font-family: Arial;
+}
+
+.item {
+    border-left: 1px solid grey;
+    display: inline-block;
+    padding: 1em;
+    position: relative;
+    left: 50px;
+}
+
+.bbc {
+    padding: .5em;
+    position: relative;
+    left: 50px;
+
+}
+.header {
+    height: fixed;
+    background-color: #0fb784;
+
+}
+.main {
+    border: 10px solid white;
+    border-top: none;
+    width: 50%;
+    position: relative;
+    margin: 0px auto;
+    bottom: 21px;
+
+
+
+}
+
+.bottom {
+    background-color:rgb(100	100	100	);
+    padding-left: 0px;
+}
+
+.msg {
+    color: white;
+}
