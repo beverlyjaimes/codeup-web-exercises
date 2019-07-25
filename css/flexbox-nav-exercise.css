@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: auto;
+    font-family: "Work Sans";
+
+
+}
+nav {
+    background: lightgray;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+/* allows flex*/
+nav a {
+    text-decoration: none;
+    /*no underline*/
+    color: black;
+    display: inline-block;
+    /*items inside and centered*/
+    padding: .8em;
+    /*space between items*/
+    font-weight: bold;
+
+}
+nav a:hover {
+    color: blue;
+}
+/*when link selected it turns blue*/
+nav ul li:nth-child(6) {
+    margin-left: auto;
+}
+/*5th item moves to right because left is filled with margin*/
+
+i {
+    padding: 1em;
+}
+li:not(.logo) {
+    z-index: 1;
+}
+nav li {
+    margin: .5em;
+}
+
+
+.logo {
+    font-size: 3em;
+    margin: 0;
+    position: absolute;
+    height: inherit;
+    width: 100%;
+    display: flex;
+    font-family: "Montserrat";
+
+
+
+}
+.logo a {
+    margin: auto;
+    padding: 0;
+}
+
+
