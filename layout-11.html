@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layout 11</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            background: gold;
+            border:.1em solid white;
+
+        }
+        body {
+            grid-gap: .5em;
+            background: white;
+            margin: 0;
+            display: grid;
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 25%);
+            grid-template-areas:
+            " one one one one"
+            " two three four four"
+            " two five five six"
+            " two seven eight nine"
+            " two ten ten ten";
+        }
+
+        .one {
+            grid-area: one;
+        }
+        .two {
+            grid-area: two;
+        }
+        .three {
+            grid-area: three;
+        }
+        .four {
+            grid-area: four;
+        }
+        .five {
+            grid-area: five;
+        }
+        .six {
+            grid-area: six;
+        }
+        .seven {
+            grid-area: seven;
+        }
+        .eight {
+            grid-area: eight;
+        }
+        .nine {
+            grid-area: nine;
+        }
+        .ten {
+            grid-area: ten;
+        }
+    </style>
+</head>
+<body>
+    <one class="one">1</one>
+    <two class="two">2</two>
+    <three class="three">3</three>
+    <four class="four">4</four>
+    <five class="five">5</five>
+    <six class="six">6</six>
+    <seven class="seven">7</seven>
+    <eight class="eight">8</eight>
+    <nine class="nine">9</nine>
+    <ten class="ten">10</ten>
+
+</body>
+</html>
