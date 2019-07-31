@@ -3,14 +3,14 @@
 }
 
 body {
-    margin: 0;
-    text-align: center;
+    margin: auto;
+
 }
 
 main {
     margin-top: 2em;
     background: black;
-    display: inline-grid;
+    display: grid;
     width: 500px;
     height: 500px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
