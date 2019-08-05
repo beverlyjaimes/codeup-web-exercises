@@ -1,2 +1,13 @@
-
-
+.pizza-pic {
+    background-image: url("../img/pizza.png");
+    border-radius: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+ .pizza-pic h1 {
+     background: white;
+     opacity: 0.7;
+ }
+ .pizza {
+     padding: 0;
+ }
