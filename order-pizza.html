@@ -52,7 +52,7 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="card ">
-                    <div class="card-header">
+                    <div class="card-header bg-primary text-white">
                         Choose size and crust
                     </div>
 <!--                    cards start -->
@@ -62,39 +62,60 @@
                         <p class="card-text">
                         <div class="card">
                         <div class="card-header">
-                            Featured
+                            Hand Tossed
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+                            <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                            <li class="list-group-item"><div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="HTsm" value="option1" checked>
+                                <label class="form-check-label" for="HTsm">
+                                    Small(10")
+                                </label>
+                            </div></li>
+                            <li class="list-group-item"> <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="HTm" value="option2">
+                                <label class="form-check-label" for="HTm">
+                                    Medium(12")
+                                </label>
+                            </div></li>
                         </ul>
                     </div>
                         <br>
 <!--                        second card section one -->
+<!--                        check values!!!!!!!!*****-->
                         <div class="card">
                             <div class="card-header">
-                                Featured
+                                Crispy Thin
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
+                                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+                                <li class="list-group-item"><div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Medium(12")
+                                    </label>
+                                </div></li>
+                                <li class="list-group-item"><div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Large(14")
+                                    </label>
+                                </div></li>
                             </ul>
                         </div>
                         </p>
 
                     </div>
 <!--                     cards end -->
-                    <div class="card-footer text-muted">
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-footer  text-right">
+                        <a href="#" class="btn btn-primary">Next Step<i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="card ">
-                    <div class="card-header">
-                        Choose size and crust
+                    <div class="card-header bg-primary text-white">
+                        Choose Cheese and Sauce
                     </div>
                     <!--                    cards start -->
 
@@ -103,39 +124,65 @@
                         <p class="card-text">
                         <div class="card">
                             <div class="card-header">
-                                Featured
+                                Cheese
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
+                                <li class="list-group-item">
+                                    <label for="cheeseamt"> How Much?</label>
+                                    <select class="form-control" id="cheeseamt">
+                                        <option>Light</option>
+                                        <option>Normal</option>
+                                        <option>Extra</option>
+                                        <option>Double</option>
+                                    </select>
+                                </li>
+
                             </ul>
                         </div>
                         <br>
                         <!--                        second card section one -->
                         <div class="card">
                             <div class="card-header">
-                                Featured
+                                Sauce
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
+                                <li class="list-group-item">
+                                    <label for="saucetype"> What Type?</label>
+                                    <select class="form-control" id="saucetype">
+                                        <option>Tomato sauce</option>
+                                        <option>Marinara sauce</option>
+                                        <option>BBQ sauce</option>
+                                        <option>Alfredo sauce</option>
+                                    </select>
+                                </li>
+                                <li class="list-group-item">
+                                    <label for="sauceamt"> How Much?</label>
+                                    <select class="form-control" id="sauceamt">
+                                        <option>Light</option>
+                                        <option>Normal</option>
+                                        <option>Extra</option>
+                                    </select>
+                                </li>
+
                             </ul>
                         </div>
                         </p>
 
                     </div>
                     <!--                     cards end -->
-                    <div class="card-footer text-muted">
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-footer text-right">
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Previous</button>
+                        <button type="button" class="btn btn-primary">Next <i class="fas fa-chevron-right"></i></button>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                 <div class="card ">
-                    <div class="card-header">
-                        Choose size and crust
+                    <div class="card-header bg-primary text-white">
+                        Choose Toppings
                     </div>
                     <!--                    cards start -->
 
@@ -144,32 +191,90 @@
                         <p class="card-text">
                         <div class="card">
                             <div class="card-header">
-                                Featured
+                                Choose Meats
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="Beef">
+                                        <label class="form-check-label" for="Beef">
+                                            Beef
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="Ham">
+                                        <label class="form-check-label" for="Ham">
+                                            Ham
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="Philly">
+                                        <label class="form-check-label" for="Philly">
+                                            Philly Steak
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="bacon">
+                                        <label class="form-check-label" for="bacon">
+                                            Bacon
+                                        </label>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                         <br>
                         <!--                        second card section one -->
                         <div class="card">
                             <div class="card-header">
-                                Featured
+                                Choose Non-Meats
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="Green">
+                                        <label class="form-check-label" for="Green">
+                                            Green Peppers
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="Mushrooms">
+                                        <label class="form-check-label" for="Mushrooms">
+                                            Mushrooms
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="Onions">
+                                    <label class="form-check-label" for="Onions">
+                                        Onions
+                                    </label>
+                                </div>
+                            </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="Jalapeno">
+                                        <label class="form-check-label" for="Jalapeno">
+                                            Jalapeno Peppers
+                                        </label>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                         </p>
 
                     </div>
                     <!--                     cards end -->
-                    <div class="card-footer text-muted">
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-footer  text-right">
+                        <a href="#" class="btn btn-primary">Checkout <i class="fas fa-shopping-cart"></i></a>
                     </div>
                 </div>
             </div>
