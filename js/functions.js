@@ -9,7 +9,7 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
     function sayHello(name) {
-        return "Hello, " + name;
+        return "Hello, " + name + " !";
 }
 
     console.log(sayHello("Edna"));
@@ -60,7 +60,7 @@ var random = Math.floor((Math.random() * 3) + 1);
 
 //part2------------------------------------------
 
-    console.log(isTwo(random));
+    console.log(isTwo(random), random);
 
 /**
  * TODO:
@@ -73,22 +73,26 @@ var random = Math.floor((Math.random() * 3) + 1);
  * > calculateTip(0.25, 25.50) // returns 6.37
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-//     function calculateTip(tipPercent, bill) {
-//         return tipPercent * bill;
-// }
-//     console.log(calculateTip(0.20,20));
+    function calculateTip(tipPercent, bill) {
+        return tipPercent * bill;
+}
+    console.log(calculateTip(0.20,20));
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
 //  */
-// function calculateTip (tipPercent, bill) {
-//     tipPercent = +prompt("What percent would you like to tip?")
-//     bill = +prompt("What is the total of your bill?");
-//     return alert ("Your total tip is $" + (tipPercent * bill));
-// }
-// calculateTip();
+
+   var tipPercent = +prompt("What percent would you like to tip?")
+   var bill = +prompt("What is the total of your bill?");
+
+   function formatNumToCurrency (num) {
+       return "$" + num.toFixed(2);
+   }
+
+   alert("Your total tip is $" + formatNumToCurrency(calculateTip(tipPercent, bill)));
+
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
