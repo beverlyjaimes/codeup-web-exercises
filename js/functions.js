@@ -113,3 +113,10 @@ var random = Math.floor((Math.random() * 3) + 1);
 
 }
 console.log(applyDiscount(100, .20));
+
+//  to avoid messing with global variables do this first then start javascript
+
+(function(){
+
+})();
+// ---goes at end of code
