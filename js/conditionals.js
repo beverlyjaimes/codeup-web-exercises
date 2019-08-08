@@ -28,53 +28,53 @@
 //
 //
 
-    function isNumOddEven(num) {
-        if (num % 2 === 1){
-            return ("Your number is odd!");
-        } else if (num % 2 === 0) {
-            return ("Your number is even!")
-        }
-
-    }
-
-    // console.log(isNumOddEven("5"));
-
-    function numPlus100(num) {
-        return ("Your number + 100 = " + (+num + 100));
-    }
-
-    // console.log(numPlus100(30));
-
-    function isNumNegativeOrPositive(num) {
-        if (num < 0) {
-            return ("Your number is negative.")
-        } else if (num > 0) {
-            return ("Your number is positive")
-        }
-    }
-
-    // console.log(isNumNegativeOrPositive(3));
-
-
-
-    var askForNum = confirm("Do you want to enter a number?");
-    var num;
-
-
-    if (askForNum) {
-       num = prompt ("Please enter a number:");
-            if (isNaN(num)) {
-                alert ("That is not a number!");
-            } else {
-                alert (isNumOddEven(num));
-                alert (numPlus100(num));
-                alert (isNumNegativeOrPositive(num));
-
-            }
-    }else {
-        alert ("bye!")
-    }
-
+    // function isNumOddEven(num) {
+    //     if (num % 2 === 1){
+    //         return ("Your number is odd!");
+    //     } else if (num % 2 === 0) {
+    //         return ("Your number is even!")
+    //     }
+    //
+    // }
+    //
+    // // console.log(isNumOddEven("5"));
+    //
+    // function numPlus100(num) {
+    //     return ("Your number + 100 = " + (+num + 100));
+    // }
+    //
+    // // console.log(numPlus100(30));
+    //
+    // function isNumNegativeOrPositive(num) {
+    //     if (num < 0) {
+    //         return ("Your number is negative.")
+    //     } else if (num > 0) {
+    //         return ("Your number is positive")
+    //     }
+    // }
+    //
+    // // console.log(isNumNegativeOrPositive(3));
+    //
+    //
+    //
+    // var askForNum = confirm("Do you want to enter a number?");
+    // var num;
+    //
+    //
+    // if (askForNum) {
+    //    num = prompt ("Please enter a number:");
+    //         if (isNaN(num)) {
+    //             alert ("That is not a number!");
+    //         } else {
+    //             alert (isNumOddEven(num));
+    //             alert (numPlus100(num));
+    //             alert (isNumNegativeOrPositive(num));
+    //
+    //         }
+    // }else {
+    //     alert ("bye!")
+    // }
+    //
 
 
 
@@ -205,12 +205,14 @@
 //     var randomColor = colors[Math.floor(Math.random() * colors.length)];
 // Generate a random number between 0 and 6
 
-    var luckyNumber = [Math.floor(Math.random() * 6)];
+    var luckyNumber = Math.floor(Math.random() * 6);
 
 
-    var itemTotal = prompt("What is your total?")
+    var itemTotal = prompt("What is your total?");
     var userCalculateTotal = (calculateTotal(luckyNumber,itemTotal));
     alert("Your lucky number is " + luckyNumber);
+    alert("Your initial price before discount is " + itemTotal);
+    alert("Your final price is " + userCalculateTotal);
 
 
     // var luckyNumberGen = Math.floor(Math.random() * 6);
