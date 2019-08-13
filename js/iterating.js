@@ -30,6 +30,7 @@
     console.log("The fourth name is " + names[3]);
 
 
+
     /**
      * TODO:
      * Write some code that uses a for loop to log every item in the names
