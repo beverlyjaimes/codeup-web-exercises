@@ -18,7 +18,7 @@
   var person = {
        firstName : "Beverly",
        lastName : "Jaimes"
-    }
+    };
 
 
 
@@ -33,11 +33,13 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
-    function sayHello() {
-        return "Hello from " + person.firstName + " " + person.lastName;
-    }
+    person.sayHello = function() {
+        return "Hello from " + this.firstName + " " + person.lastName;
+    };
 
-    console.log(sayHello());
+    //this shows that it is related to the above object
+
+    console.log(person.sayHello());
 
 
     /** TODO:
@@ -63,19 +65,19 @@
     shoppers.forEach(function (shopper) {
 
             if (shopper.amount >= 200) {
-                var discount = parseFloat(shopper.amount) - (parseFloat(shopper.amount) * .12);
-                console.log (shopper.name + " your total amount is $" + shopper.amount + "." +
-                    "Your amount after a 12% discount is : $" + discount + ".");
+                var discount = parseFloat(shopper.amount.toFixed(2)) - (parseFloat(shopper.amount.toFixed(2)) * .12);
+                console.log (shopper.name + " your total amount is $" + shopper.amount.toFixed(2) + "." +
+                    "Your amount after a 12% discount is : $" + discount.toFixed(2) + ".");
 
-            } else if (shopper.amount < 200){
-                console.log(shopper.name + " your total amount is $" + shopper.amount
+            } else {
+                console.log(shopper.name + " your total amount is $" + shopper.amount.toFixed(2)
                     + " you spent less than $200 therefore the offer is not valid.")
             }
 
 
     });
 
-
+    //add the discount amount!!!
 
 
     /** TODO:
@@ -99,16 +101,32 @@
                 lastName: "Adams"
 
             } },
-        {title:"Green Eggs and Ham", author: { firstName: "Dr." , lastName: "Seuss"
+        {
+            title:"Green Eggs and Ham",
+            author: {
+                firstName: "Dr." ,
+                lastName: "Seuss"
 
          } },
-        {title:"Delirium", author: { firstName: "Lauren" , lastName: "Oliver"
+        {
+            title:"Delirium",
+            author: {
+                firstName: "Lauren" ,
+                lastName: "Oliver"
 
         } },
-        {title:"Black Hearts", author: { firstName: "Jim" , lastName: "Frederick"
+        {
+            title:"Black Hearts",
+            author: {
+                firstName: "Jim" ,
+                lastName: "Frederick"
 
             } },
-        {title:"Los Versos Del Capitan", author: { firstName: "Pablo" , lastName: "Neruda"
+        {
+            title:"Los Versos Del Capitan",
+            author: {
+                firstName: "Pablo" ,
+                lastName: "Neruda"
 
             } }
     ];
@@ -167,7 +185,6 @@
             title: title ,
             author:
                 {firstName: firstName , lastName: lastName}
-
 
         }
 
