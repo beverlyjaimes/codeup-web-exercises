@@ -31,24 +31,49 @@
 
 <script>
 
-// // <!--    select element by id -->
-//     $(document).ready(function(){
-//        var contents = $('#headingid').html();
-//        alert(contents);
+
+// // // <!--    select element by id -->
+// //     $(document).ready(function(){
+// //        var contents = $('#headingid').html();
+// //        alert(contents);
+// //
+// //     }
 //
-//     }
-
-
-$(document).ready(function() {
-
-  $('li').css('font-size', '20px');
-  $('h1, p, li').css('color', 'highlight');
-
-    var contents = $('h1').html();
-    alert(contents);
-});
+//
+// $(document).ready(function() {
+//
+//   $('li').css('font-size', '20px');
+//   $('h1, p, li').css('color', 'highlight');
+//
+//     var contents = $('h1').html();
+//     alert(contents);
+// });
 
 //commit previous changes
+
+//    MOUSE EVENTS
+
+    //h1 background color changes when clicked
+    $('h1').click(function(){
+        $(this).css('background-color', 'orange')
+    });
+
+//    all paragraphs have font size change when double clicked
+
+    $('p').dblclick(function(){
+        $(this).css('font-size', '18px')
+});
+//    all li text to red when hover then reset
+
+    $('li').hover(function() {
+        $(this).css('color', 'red');
+
+    },
+        function() {
+            $(this).css('color', 'black');
+        }
+    )
+
 </script>
 
 </body>

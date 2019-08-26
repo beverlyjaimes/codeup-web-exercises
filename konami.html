@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+<link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background: darkslategrey;
+        font-family: 'Bangers', cursive;
+        color: white;
+        font-size: 30px;
+    }
+
+    h1 {
+        display: flex;
+        justify-content: center;
+
+    }
+
+
+</style>
+</head>
+<body>
+<h1>ENTER CODE...</h1>
+<audio id="myAudio">
+    <source src="sound/pacman_beginning.wav">
+
+</audio>
+<audio id="office">
+    <source src="sound/The%20Office%20Theme%20Song.mp3">
+
+</audio>
+
+<div id="container">
+</div>
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+
+
+
+    //
+    //     function konamiCode() {
+    //         var input = '';
+    //         var key = '38384040373937396665';
+    //         document.addEventListener('keydown', function (e) {
+    //             input += ("" + e.keyCode);
+    //
+    //             if (input === key) {
+    //                 $('h1').html('CHEATS ACTIVATED');
+    //
+    //             }
+    //         });}
+    //
+    //
+    //
+    // konamiCode()
+
+    var konami = '38,38,40,40,37,39,37,39,66,65,13';
+    var cool = '67,79,79,76';
+    var keys = [];
+    $(document).keyup(function (e) {
+        keys.push(e.keyCode);
+        if (keys.toString().indexOf(konami) >= 0) {
+            $('h1').html('You have added 30 lives!');
+            $('body').css('background-image', 'url(img/pacman.gif)', 'cover');
+            var audio = document.getElementById("myAudio");
+            audio.play();
+        } else if (keys.toString().indexOf(cool) >= 0){
+            $('h1').html('');
+            $('body').css({'background': 'url(img/dwight.gif)', 'backgroundSize': 'repeat'});
+            var audio = document.getElementById("office");
+            audio.play();
+        }
+
+    });
+
+
+
+
+    //    keyup notes
+//    will only happen when the key has been released
+</script>
+</body>
+</html>
