@@ -23,7 +23,7 @@
 </head>
 <body>
 <h1>ENTER CODE...</h1>
-<audio id="myAudio">
+<audio id="pacman">
     <source src="sound/pacman_beginning.wav">
 
 </audio>
@@ -39,6 +39,33 @@
     "use strict";
 
 
+
+
+
+    var konamiCode = '38,38,40,40,37,39,37,39,66,65,13';
+    var cool = '67,79,79,76';
+    var keys = [];
+    $(document).keyup(function (e) {
+        keys.push(e.keyCode);
+        if (keys.toString().indexOf(konamiCode) >= 0) {
+            $('h1').html('You have added 30 lives!');
+            $('body').css('background-image', 'url(img/pacman.gif)', 'cover');
+            var audio = document.getElementById("pacman");
+            audio.play();
+        } else if (keys.toString().indexOf(cool) >= 0){
+            $('h1').html('');
+            $('body').css({'background': 'url(img/dwight.gif)', 'backgroundSize': 'repeat'});
+            var audio = document.getElementById("office");
+            audio.play();
+        }
+
+    });
+
+
+
+
+    //    keyup notes
+//    will only happen when the key has been released
 
 
     //
@@ -57,31 +84,6 @@
     //
     //
     // konamiCode()
-
-    var konami = '38,38,40,40,37,39,37,39,66,65,13';
-    var cool = '67,79,79,76';
-    var keys = [];
-    $(document).keyup(function (e) {
-        keys.push(e.keyCode);
-        if (keys.toString().indexOf(konami) >= 0) {
-            $('h1').html('You have added 30 lives!');
-            $('body').css('background-image', 'url(img/pacman.gif)', 'cover');
-            var audio = document.getElementById("myAudio");
-            audio.play();
-        } else if (keys.toString().indexOf(cool) >= 0){
-            $('h1').html('');
-            $('body').css({'background': 'url(img/dwight.gif)', 'backgroundSize': 'repeat'});
-            var audio = document.getElementById("office");
-            audio.play();
-        }
-
-    });
-
-
-
-
-    //    keyup notes
-//    will only happen when the key has been released
 </script>
 </body>
 </html>
