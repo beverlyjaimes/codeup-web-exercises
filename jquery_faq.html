@@ -8,11 +8,14 @@
          .invisible {
             visibility: hidden;
         }
+        .highlighter {
+
+        }
     </style>
 </head>
 <body>
 <dl>
-<lh>10 FAQ's about National Parks</lh>
+    <lh><a id="styler">10 FAQ's about National Parks</a></lh>
 
     <dt>Who is the director of the National Park Service?</dt>
 
@@ -68,13 +71,27 @@
 
 <script>
     'use strict';
+    //
+    // $(document).keypress(function(e) {
+    //     console.log(e);
+    //     if (e.key === 'f') {
+    //         $('dd').toggleClass('invisible');
+    // }
+    // // });
+    // $(document).ready(function(e) {
+    //     $('#styler').click(function(){
+    //         $('dd').toggleClass('invisible');
+    //     })
+    //
+    //
+    // });
 
-    $(document).keypress(function(e) {
-        console.log(e);
-        if (e.key === 'f') {
-            $('dd').toggleClass('invisible');
-    }
-    });
+    // $('dt').click(function(){
+    //     $(this).css('background', 'yellow');
+    // });
+
+
+
 
 </script>
 </body>
