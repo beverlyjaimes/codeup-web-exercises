@@ -15,6 +15,11 @@
 </head>
 <body>
 
+    <h2>Would you like to register for this site?</h2>
+
+    <div>
+        <h1>Would you like to sign up for our newsletter?</h1><span>x</span>
+    </div>
 
 
    <h3>Big Bend</h3>
@@ -108,22 +113,23 @@
 
 <script>
     'use strict';
-    //
+
     // $(document).keypress(function(e) {
     //     console.log(e);
     //     if (e.key === 'f') {
     //         $('dd').toggleClass('invisible');
     // }
     // // });
-    // $(document).ready(function(e) {
-    //     $('#styler').click(function(){
-    //         $('dd').toggleClass('invisible');
-    //     })
-    //
-    //
-    // });
+    $(document).ready(function(e) {
+        $('#styler').click(function(){
+            $('dd').toggleClass('invisible');
+        })
 
-    // $('dt').click(function(){
+
+    });
+
+
+    // $('lh').click(function(){
     //     $(this).css('background', 'yellow');
     // });
 
@@ -140,7 +146,57 @@
 
     $('li').click(function(){
        $(this).parents().children().first().css('color', 'blue')
-    })
+    });
+
+
+    // \ EFFECTS
+    $('span').click(function () {
+        $('div').hide();
+    });
+
+    $('ul').css('display', "none");
+    // or
+
+        // .hide()
+
+    $('h3').click(function(){
+        $(this).next().slideToggle();
+    });
+
+
+
+    // function updateTimer() {
+    //     if (setInterval() > 0) {
+    //         $('h2').fadeIn()
+    //     } else if (setInterval() < 0){
+    //         $('h2').css('display', 'none')
+    //     }
+    //
+    //
+    // var intervalId = setInterval(3000);}
+    // updateTimer(3000)
+    //\
+    // //mine
+    // $('h2').css('display', 'none');
+    //
+    // var detonationTimer = 5;
+    //
+    // function updateTimer() {
+    //     if (detonationTimer == 0) {
+    //         $('h2').fadeIn()
+    //     }
+    //
+    //     detonationTimer--;
+    // }
+    //
+    // var intervalId = setInterval(updateTimer, 2000);
+//Justin
+
+$('h2').hide();
+
+    $('h2').delay(8000).fadeIn();
+
+
 </script>
 </body>
 </html>
