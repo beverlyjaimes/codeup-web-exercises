@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        h1{
+            margin-left: 15em;
+
+        }
+        button {
+            margin-left: 9.5em;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div class="heading btn-warning">
+<h1>My Tool Store</h1>
+</div>
+<table id="products" class="table table-dark container">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<button id="refresh" class="btn btn-warning">REFRESH!</button>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+
+
+(function() {
+    "use strict";
+
+function newProducts() {
+
+    // TODO: Create an ajax GET request for /data/inventory.json
+
+    $.ajax("data/inventory.json").done(function (data) {
+
+        $('#insertProducts').html(inventoryHTML(data));
+    });
+}
+    function inventoryHTML(products) {
+        var productsHTML = "";
+
+        $('#insertProducts').html(productsHTML);
+
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+
+        products.forEach(function (product) {
+
+
+            // productsHTML += "<tbody>";
+            productsHTML += "<tr>";
+            productsHTML += "<td>" + product.title + "</td>";
+            productsHTML += "<td>" + product.quantity + "</td>";
+            productsHTML += "<td>" + product.price + "</td>";
+            productsHTML += "<td>" + product.categories + "</td>";
+            productsHTML += "</tr>";
+            // productsHTML += "</tbody>";
+
+        });
+        return productsHTML;
+    }
+
+    $('#refresh').click(newProducts);
+
+})();
+</script>
+
+</body>
+</html>
