@@ -3,14 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+
+         #posts {
+
+            color: white;
+            background: #38666C;
+        }
+
+        .container {
+            max-width: 500px;
+            display: flex;
+            justify-content: center;
+        }
+
+        h2 {
+            border-radius: 4px
+        }
+
+    </style>
 </head>
 <body>
-<div id="posts"></div>
+    <h1>BLOGS</h1>
+        <div id="posts"> </div>
 
 
-<script src="js/jquery-2.2.4.js"></script>
-<scritp>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-</scritp>
+
+
+<script>
+    'use strict';
+
+
+
+
+
+    $.ajax("data/blog.json").done(function (data) {
+
+        $('#posts').html(blogPostsHTML(data));
+
+
+        $('h2').css('background', 'rgba(188, 190, 210, 0.8)');
+        $('p').css('background', 'rgba(173, 172, 170, 0.2)');
+        $('h3').css('background', 'rgba(223, 163, 45, 0.9');
+    });
+
+    function blogPostsHTML(posts) {
+        var blogPostsHTML = "";
+
+        $('#posts').html(blogPostsHTML);
+
+    posts.forEach(function (post) {
+
+
+        blogPostsHTML += "<h2 class='container'>" + post.title + "</h2>";
+        blogPostsHTML += "<p class='container'>" + post.content + "</p>";
+        blogPostsHTML += "<h3 class='container'>" + post.categories + "</h3>";
+        blogPostsHTML += "<h4 class='container'>" + post.date + "</h4>";
+
+    });
+    return blogPostsHTML;
+}
+
+
+
+
+
+</script>
+
+
+
+
 </body>
 </html>

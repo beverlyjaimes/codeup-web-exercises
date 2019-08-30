@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+</head>
+<body>
+
+<header>
+    <h1>Weather Application</h1>
+    <h2>City</h2>
+</header>
+<main>
+    <div class="weather-box"></div>
+<!--    <div class="weather-box"></div>-->
+<!--    <div class="weather-box"></div>-->
+</main>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/keys.js"></script>
+<script>
+    'use strict';
+
+    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey+ "/29.4241,-98.4936").done(function(data) {
+        console.log(data.daily.data[0]);
+
+
+    });
+    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey+ "/29.4241,-98.4936").done(function(data) {
+
+
+
+
+
+
+
+
+
+
+        var weatherHTML = "";
+
+
+
+        // days.daily.data.forEach(function (day) {
+        //
+        //     weatherHTML += "<h2>" + day.temperatureMin + "</h2>";
+        //
+        // });
+
+        for (var i = 0; i < 3; i++) {
+
+                weatherHTML +=   "<h2>" + data.daily.data[i].temperatureHigh + "/" + data.daily.data[i].temperatureLow + "</h2>";
+                weatherHTML +=   "<h2  img='icons/icon/cloud.svg'> "+ "</h2>";
+                weatherHTML +=   "<h2>" + data.daily.data[i].icon  + " : " + data.daily.data[i].summary  + "</h2>";
+                weatherHTML +=   "<h2>" + data.daily.data[i].humidity  + "</h2>";
+
+
+
+        }
+
+        $('div').html(weatherHTML);
+    });
+
+</script>
+
+</body>
+</html>
