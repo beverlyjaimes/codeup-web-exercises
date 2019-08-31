@@ -3,6 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map</title>
+    <style>
+
+
+        #box {
+            display: flex;
+
+        }
+
+        ul {
+            text-align: center;
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -11,21 +24,66 @@
     <h2>City</h2>
 </header>
 <main>
-    <div class="weather-box"></div>
-<!--    <div class="weather-box"></div>-->
-<!--    <div class="weather-box"></div>-->
+    <div class="weather-box">
+        <div id="box"></div>
+    </div>
+    <div id='map' style='width: 50%; height: 400px;'></div>
+
 </main>
 <script src="js/jquery-2.2.4.js"></script>
 <script src="js/keys.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
+<script src="js/mapbox-utils.js"></script>
+
 <script>
     'use strict';
 
-    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey+ "/29.4241,-98.4936").done(function(data) {
-        console.log(data.daily.data[0]);
+    // $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey+ "/29.4241,-98.4936").done(function(data) {
+    //     console.log(data.daily.data[0]);
+    //
+    //
+    // });
+
+    var arrayOfIcons = [
+        {
+            status: "clear-day",
+            image: "icon/Sun.svg"
+        },
+        {
+            status: "clear-night",
+            image: "icon/Moon-Full.svg"
+        }, {
+            status: "rain",
+            image: "icon/Cloud-Rain.svg"
+        }, {
+            status: "snow",
+            image: "icon/Snowflake.svg"
+        }, {
+            status: "sleet",
+            image: "icon/Cloud-Snow.svg"
+        }, {
+            status: "wind",
+            image: "icon/Wind.svg"
+        }, {
+            status: "fog",
+            image: "icon/Cloud-Fog.svg"
+        }, {
+            status: "cloudy",
+            image: "icon/Cloud.svg"
+        }, {
+            status: "partly-cloudy-day",
+            image: "icon/Cloud-Sun.svg"
+        }, {
+            status: "partly-cloudy-night",
+            image: "icon/Cloud-Moon.svg"
+        }
+    ];
 
 
-    });
-    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey+ "/29.4241,-98.4936").done(function(data) {
+
+
+    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function(data) {
 
 
 
@@ -48,17 +106,87 @@
 
         for (var i = 0; i < 3; i++) {
 
-                weatherHTML +=   "<h2>" + data.daily.data[i].temperatureHigh + "/" + data.daily.data[i].temperatureLow + "</h2>";
-                weatherHTML +=   "<h2  img='icons/icon/cloud.svg'> "+ "</h2>";
-                weatherHTML +=   "<h2>" + data.daily.data[i].icon  + " : " + data.daily.data[i].summary  + "</h2>";
-                weatherHTML +=   "<h2>" + data.daily.data[i].humidity  + "</h2>";
-
+                weatherHTML +=   "<ul>";
+                weatherHTML +=   "<img src='" + changeImage(arrayOfIcons, data.daily.data[i].icon) +"'>";
+                weatherHTML +=   "<li>" + data.daily.data[i].temperatureHigh + "° /" + data.daily.data[i].temperatureLow + "°</li>";
+                weatherHTML +=   "<li>" + "HUMIDITY: " + data.daily.data[i].humidity  + "</li>";
+                weatherHTML +=   "<li>" + "WIND SPEED: "+ data.daily.data[i].windSpeed  + "</li>";
+                weatherHTML +=   "<li>" + "PRESSURE: " + data.daily.data[i].pressure  + "</li>";
+                weatherHTML +=   "</ul>";
 
 
         }
 
-        $('div').html(weatherHTML);
+        $('#box').html(weatherHTML);
+
+
+
+
+
+
+
+    // function changeImage(icon){
+    //     var arrIcon = [];
+    //
+    //     arrayOfIcons.forEach(function (value) {
+    //
+    //         if(icon === value.icon){
+    //         arrIcon.push(value.image)
+    //     }
+    // });
+    //     return arrIcon
+    //
+    // }
+
+
+
+        function changeImage (arrayOfIcons, apiIcon) {
+            for (var i = 0; i < arrayOfIcons.length; i++) {
+                if (arrayOfIcons[i].status === apiIcon) {
+                    return arrayOfIcons[i].image;
+                }
+            }
+        }
+
+
     });
+
+
+
+
+</script>
+<script>
+
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9'
+
+
+    });
+    geocode("Austin, Texas", mapboxToken).then(function(result) {
+    console.log(result);
+    map.setZoom(12);
+    map.setCenter(result);
+
+    });
+
+
+    function markerPop(array){
+
+    var popup = new mapboxgl.Popup()
+    .setHTML(array.Name + '<br>'  + array.address);
+
+
+
+    var marker = new mapboxgl.Marker()
+    .setLngLat(array.coordinates)
+    .addTo(map);
+    marker.setPopup(popup);
+    }
+
+
+
 
 </script>
 
