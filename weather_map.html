@@ -30,7 +30,8 @@
 
 <header>
     <h1>Weather Application</h1>
-    <h2>City</h2>
+
+
 </header>
 <main>
 
@@ -53,6 +54,7 @@
 
 <script src="js/jquery-2.2.4.js"></script>
 <script src="js/keys.js"></script>
+<script src="js/mapbox-utils.js"></script>
 
 
 
@@ -74,6 +76,8 @@
         center: [-98.4916, 29.4252]
     });
 
+
+
     var lat = 29.424;
     var long = -98.4936;
 
@@ -88,11 +92,17 @@
         .setLngLat([long, lat])
         .addTo(map);
 
+
+
     map.on("moveend", function() {
         // console.log(map.getCenter());
         marker.setLngLat(map.getCenter());
         onDragEnd();
     });
+
+    // reverseGeocode(lat, long, mapboxToken).then(function(results) {
+    //     console.log(results)
+    // });
 
 
 
@@ -105,7 +115,7 @@
 
 
 
-    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + newlong + "," + newlat).done(function(data) {
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + newlong + "," + newlat).done(function(data) {
 
         var weatherHTML = "";
 
@@ -129,6 +139,7 @@
     }
     marker.on('dragend', onDragEnd);
     onDragEnd();
+
 
 
         //function to change icon ----------------------------------------------------------------------------
