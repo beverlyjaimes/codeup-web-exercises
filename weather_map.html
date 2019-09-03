@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
 
     <title>Weather Map</title>
+
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.css' rel='stylesheet' />
@@ -34,41 +35,27 @@
 <main>
 
 
+
+    <div class="weather-box">
         <div id="box"></div>
-
-
-<!--    mapbox form -->
-    <div>
-        <h1>Enter Longitude and Latitude</h1>
-        <form>
-            <div class="form-group">
-                <label for="latitude"></label>
-                <input id="latitude" type="text" placeholder="Enter Latitude"><br>
-                <label for="longitude"></label>
-                <input id="longitude" type="text" placeholder="EnterLongitude">
-                <button id="update-lat-long" type="button">Update</button>
-            </div>
-        </form>
-
     </div>
 
 
-    <div id='map'></div>
-    <pre id='coordinates' class='coordinates'></pre>
 
-
+    <div id='map' style='width: 50%; height: 400px;'></div>
 
 </main>
-
 
 
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
 
 
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/keys.js"></script>
 
-<script src="JS/jquery-2.2.4.js"></script>
-<script src="JS/keys.js"></script>
+
+
 <script>
     'use strict';
 
@@ -77,9 +64,8 @@
     //
     //
     // });
-    mapboxgl.accessToken = mapboxToken;
 
-    var coordinates = document.getElementById('coordinates');
+    mapboxgl.accessToken = mapboxToken;
 
     var map = new mapboxgl.Map({
         container: 'map',
@@ -94,27 +80,17 @@
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl
     }));
-
-
     var marker = new mapboxgl.Marker({
         draggable: true
     })
         .setLngLat([long, lat])
         .addTo(map);
-
-
     function onDragEnd() {
         var lngLat = marker.getLngLat();
-        var i = lngLat.lng;
-        var j = lngLat.lat;
+        var lat = lngLat.lng;
+        var lang = lngLat.lat;
 
-
-
-
-
-    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey +  "/" + j + "," + i ).done(function(data) {
-
-        // "/29.4241,-98.4936"
+    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lang + "," + lat).done(function(data) {
 
         var weatherHTML = "";
 
@@ -139,7 +115,8 @@
     marker.on('dragend', onDragEnd);
     onDragEnd();
 
-        //function to change icon
+
+        //function to change icon ----------------------------------------------------------------------------
 
 
         function changeImage (arrayOfIcons, apiIcon) {
@@ -149,8 +126,6 @@
                 }
             }
         }
-
-
     var arrayOfIcons = [
         {
             status: "clear-day",
@@ -188,27 +163,10 @@
 
 
 
+    //---------------------------------------------------------------------------------------------------------------------------------
 
 
 </script>
 
-
-<!--MAPBOX-->
-
-
-<script>
-
-        // marker.on('dragend', onDragEnd);
-        // onDragEnd();
-
-
-
-    // var coor = {lng: -157.8060, lat: 21.2620};
-    // reverseGeocode(coor, mapboxToken).then(function(result) {
-    //     console.log(result)
-    //
-    // });
-
-</script>
 </body>
 </html>

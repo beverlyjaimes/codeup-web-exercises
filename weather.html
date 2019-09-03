@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="weather-box">
+    <div id="box"></div>
+</div>
+<div id='map' style='width: 50%; height: 400px;'></div>
+
+</main>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/keys.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
+<script src="js/mapbox-utils.js"></script>
+
+<script>
+    'use strict';
+
+
+var arrayOfIcons = [
+{
+status: "clear-day",
+image: "icon/Sun.svg"
+},
+{
+status: "clear-night",
+image: "icon/Moon-Full.svg"
+}, {
+status: "rain",
+image: "icon/Cloud-Rain.svg"
+}, {
+status: "snow",
+image: "icon/Snowflake.svg"
+}, {
+status: "sleet",
+image: "icon/Cloud-Snow.svg"
+}, {
+status: "wind",
+image: "icon/Wind.svg"
+}, {
+status: "fog",
+image: "icon/Cloud-Fog.svg"
+}, {
+status: "cloudy",
+image: "icon/Cloud.svg"
+}, {
+status: "partly-cloudy-day",
+image: "icon/Cloud-Sun.svg"
+}, {
+status: "partly-cloudy-night",
+image: "icon/Cloud-Moon.svg"
+}
+];
+
+
+$.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function(data) {
+weatherHTML +=   "<ul>";
+    weatherHTML +=   "<img src='" + changeImage(arrayOfIcons, data.daily.data[i].icon) +"'>";
+    weatherHTML +=   "<li>" + data.daily.data[i].temperatureHigh + "° /" + data.daily.data[i].temperatureLow + "°</li>";
+    weatherHTML +=   "<li>" + "HUMIDITY: " + data.daily.data[i].humidity  + "</li>";
+    weatherHTML +=   "<li>" + "WIND SPEED: "+ data.daily.data[i].windSpeed  + "</li>";
+    weatherHTML +=   "<li>" + "PRESSURE: " + data.daily.data[i].pressure  + "</li>";
+    weatherHTML +=   "</ul>";
+}
+$('#box').html(weatherHTML);
+
+function changeImage (arrayOfIcons, apiIcon) {
+for (var i = 0; i < arrayOfIcons.length; i++) {
+if (arrayOfIcons[i].status === apiIcon) {
+return arrayOfIcons[i].image;
+}
+}
+}
+$('div').html(weatherHTML);
+});
+</script>
+<script>
+mapboxgl.accessToken = mapboxToken;
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9'
+});
+geocode("Austin, Texas", mapboxToken).then(function(result) {
+    console.log(result);
+    map.setZoom(12);
+    map.setCenter(result);
+});
+function markerPop(array){
+    var popup = new mapboxgl.Popup()
+        .setHTML(array.Name + '<br>'  + array.address);
+    var marker = new mapboxgl.Marker()
+        .setLngLat(array.coordinates)
+        .addTo(map);
+    marker.setPopup(popup);
+}
+</script>
+
+</body>
+</html>
