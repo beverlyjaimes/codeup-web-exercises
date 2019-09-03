@@ -9,11 +9,20 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Livvic&display=swap" rel="stylesheet">
 
     <style>
 
+        body {
+            text-align: center;
+            font-family: 'Livvic', sans-serif;
+            background: darkseagreen;
+        }
 
+        h1 {
+            color: grey;
+            text-decoration: underline;
+        }
         #box {
             display: flex;
 
@@ -23,8 +32,9 @@
             text-align: center;
             list-style: none;
             padding: 0;
-            border: 1px dotted black;
-
+            border: 1px dotted grey;
+            background: whitesmoke;
+            opacity: 0.6;
         }
         .info {
             max-width: 400px;
@@ -33,7 +43,7 @@
         }
 
         #map {
-            border: 5px solid black;
+            border: 5px solid grey;
             width: 80%; height: 400px;
 
 
@@ -173,14 +183,14 @@
         //function to change icon ----------------------------------------------------------------------------
 
 
-        // function changeImage (arrayOfIcons, apiIcon) {
-        //     for (var i = 0; i < arrayOfIcons.length; i++) {
-        //         if (arrayOfIcons[i].status === apiIcon) {
-        //             return arrayOfIcons[i].image;
-        //
-        //         }
-        //     }
-        // }
+        function changeImage (arrayOfIcons, apiIcon) {
+            for (var i = 0; i < arrayOfIcons.length; i++) {
+                if (arrayOfIcons[i].status === apiIcon) {
+                    return arrayOfIcons[i].image;
+
+                }
+            }
+        }
 
     var arrayOfIcons = [
         {
