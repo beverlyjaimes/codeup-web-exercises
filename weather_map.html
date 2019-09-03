@@ -76,21 +76,36 @@
 
     var lat = 29.424;
     var long = -98.4936;
+
     map.addControl(new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl
+        mapboxgl: mapboxgl,
+        marker:false
     }));
     var marker = new mapboxgl.Marker({
         draggable: true
     })
         .setLngLat([long, lat])
         .addTo(map);
-    function onDragEnd() {
-        var lngLat = marker.getLngLat();
-        var lat = lngLat.lng;
-        var lang = lngLat.lat;
 
-    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lang + "," + lat).done(function(data) {
+    map.on("moveend", function() {
+        // console.log(map.getCenter());
+        marker.setLngLat(map.getCenter());
+        onDragEnd();
+    });
+
+
+
+    function onDragEnd() {
+
+        var lngLat = marker.getLngLat();
+        var newlat = lngLat.lng;
+        var newlong = lngLat.lat;
+
+
+
+
+    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + newlong + "," + newlat).done(function(data) {
 
         var weatherHTML = "";
 
