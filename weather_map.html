@@ -8,6 +8,7 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 
     <style>
@@ -21,14 +22,31 @@
         ul {
             text-align: center;
             list-style: none;
+            padding: 0;
+            border: 1px dotted black;
+
+        }
+        .info {
+            max-width: 400px;
+            display: flex;
+            justify-content: center;
         }
 
+        #map {
+            border: 5px solid black;
+            width: 80%; height: 400px;
 
+
+        }
+        #mapDiv {
+            display: flex;
+            justify-content: center;
+        }
     </style>
-</head>
+</head >
 <body>
 
-<header>
+<header class="container info">
     <h1>Weather Application</h1>
 
 
@@ -37,15 +55,25 @@
 
 
 
-    <div class="weather-box">
-        <div id="box"></div>
+    <div class="weather-box container info">
+        <div class="container info" id="box"></div>
     </div>
 
 
-
-    <div id='map' style='width: 50%; height: 400px;'></div>
-
+<div id="mapDiv" class="container">
+    <div id='map'></div>
+</div>
 </main>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 
 
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
@@ -145,17 +173,20 @@
         //function to change icon ----------------------------------------------------------------------------
 
 
-        function changeImage (arrayOfIcons, apiIcon) {
-            for (var i = 0; i < arrayOfIcons.length; i++) {
-                if (arrayOfIcons[i].status === apiIcon) {
-                    return arrayOfIcons[i].image;
-                }
-            }
-        }
+        // function changeImage (arrayOfIcons, apiIcon) {
+        //     for (var i = 0; i < arrayOfIcons.length; i++) {
+        //         if (arrayOfIcons[i].status === apiIcon) {
+        //             return arrayOfIcons[i].image;
+        //
+        //         }
+        //     }
+        // }
+
     var arrayOfIcons = [
         {
             status: "clear-day",
             image: "icon/Sun.svg"
+
         },
         {
             status: "clear-night",
@@ -166,6 +197,7 @@
         }, {
             status: "snow",
             image: "icon/Snowflake.svg"
+
         }, {
             status: "sleet",
             image: "icon/Cloud-Snow.svg"
@@ -186,6 +218,7 @@
             image: "icon/Cloud-Moon.svg"
         }
     ];
+
 
 
 
