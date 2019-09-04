@@ -168,31 +168,32 @@
 
 
 
-    // function updateTimer() {
-    //     if (setInterval() > 0) {
-    //         $('h2').fadeIn()
-    //     } else if (setInterval() < 0){
-    //         $('h2').css('display', 'none')
-    //     }
-    //
-    //
-    // var intervalId = setInterval(3000);}
-    // updateTimer(3000)
-    //\
-    // //mine
-    // $('h2').css('display', 'none');
-    //
-    // var detonationTimer = 5;
-    //
-    // function updateTimer() {
-    //     if (detonationTimer == 0) {
-    //         $('h2').fadeIn()
-    //     }
-    //
-    //     detonationTimer--;
-    // }
-    //
-    // var intervalId = setInterval(updateTimer, 2000);
+
+    function updateTimer() {
+        if (setInterval() > 0) {
+            $('h2').fadeIn()
+        } else if (setInterval() < 0){
+            $('h2').css('display', 'none')
+        }
+
+
+    var intervalId = setInterval(3000);}
+    updateTimer(3000);
+
+    //mine
+    $('h2').css('display', 'none');
+
+    var detonationTimer = 5;
+
+    function updateTimer() {
+        if (detonationTimer == 0) {
+            $('h2').fadeIn()
+        }
+
+        detonationTimer--;
+    }
+
+    var intervalId = setInterval(updateTimer, 2000);
 //Justin
 
 $('h2').hide();
