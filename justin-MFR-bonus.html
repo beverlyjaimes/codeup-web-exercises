@@ -89,8 +89,16 @@
 
         // PROBLEM 1 - create an array of the first letters of each fruit
 
+        let firstLetter = fruits.map(fruits => fruits.charAt(0));
+        console.log(firstLetter);
+
+
         // PROBLEM 2 - create array of user objects based on the customers array
         // of objects (each user object should just have name and age properties)
+
+        let nameAndAge = (customer.name, customer.age) =>  {return {name:customers.name,  age:customers.age}} ;
+    console.log(nameAndAge());
+
 
         // PROBLEM 3 - create an array of civil servant customers (teachers and police officers)
         // containing the same properties as the objects on the customers objects
