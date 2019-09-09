@@ -99,3 +99,17 @@ let usersNames = users.reduce((accumulation, user, i) => {
 
 
 console.log( usersNames);
+
+
+//BONUS
+
+const uniqueLangs = users.reduce((listOfLangs, user) => {
+    for (const lang of user.languages) {
+        if (listOfLangs.indexOf(lang) === -1) {
+            listOfLangs.push(lang)
+        }
+    }
+    return listOfLangs
+}, []);
+
+console.log(uniqueLangs);
