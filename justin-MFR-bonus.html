@@ -120,6 +120,14 @@
         const age = customers.map(customer => customer.age);
         console.log(age);
 
+        const ageSum = age.reduce((ageSum , customer) => {
+            return ageSum + customer
+        }, 0);
+
+        console.log(ageSum);
+
+
+
         // PROBLEM 5 - create a function makeSuperPet() that takes in the pets array as input and returns a single pet object
         // with the following shape...
         /*
