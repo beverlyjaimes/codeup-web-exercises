@@ -103,7 +103,28 @@
         // PROBLEM 3 - create an array of civil servant customers (teachers and police officers)
         // containing the same properties as the objects on the customers objects
 
+        const civilServant = customers.filter (customer => {
 
+                if (customer.occupation === 'Police Officer' || customer.occupation === 'Teacher') {
+                   return customer
+                }
+
+
+        }, );
+        console.log(civilServant);
+
+
+        //
+        // const civilServant = customers.map((ocuppation, customer) => {
+        //     for (const ocp of customer.occupation) {
+        //         if (customer.occupation === 'Police Officer' || customer.occupation === 'Teacher') {
+        //             occuppation.push(ocp)
+        //         }
+        //     }
+        //     return occpupation
+        // }, []);
+        //
+        // console.log(civilServant);
 
 
 
