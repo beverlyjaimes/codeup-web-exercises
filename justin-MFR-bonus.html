@@ -114,21 +114,11 @@
         console.log(civilServant);
 
 
-        //
-        // const civilServant = customers.map((ocuppation, customer) => {
-        //     for (const ocp of customer.occupation) {
-        //         if (customer.occupation === 'Police Officer' || customer.occupation === 'Teacher') {
-        //             occuppation.push(ocp)
-        //         }
-        //     }
-        //     return occpupation
-        // }, []);
-        //
-        // console.log(civilServant);
-
-
 
         // PROBLEM 4 - determine the average age of customers
+
+        const age = customers.map(customer => customer.age);
+        console.log(age);
 
         // PROBLEM 5 - create a function makeSuperPet() that takes in the pets array as input and returns a single pet object
         // with the following shape...
