@@ -50,6 +50,10 @@ function commit (userName) {
             })).then((obj) => console.log(obj[0].created_at));
 
 }
+//
+// commit('beverlyjaimes').then(ddd => {
+//     console.log(new Date(ddd).toDateString());
+// });
 
 console.log(commit("beverlyjaimes"));
 
