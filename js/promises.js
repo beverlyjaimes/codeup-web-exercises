@@ -39,15 +39,19 @@
 
 
 function commit (userName) {
-    fetch(`https://api.github.com/users/${userName}/events/public`, {headers: {"Authorization": gitToken}})
+    fetch(`https://api.github.com/users/${userName}/events/public`, {headers: {"Authorization": `token ${gitToken}`}})
 
         .then((response) => {
             console.log(response);
             return response.json();
         }).then((data) => {
-        console.log(data);
-    }).then((dat) =>
-);
+            if(data.push){
+
+        console.log(data[0].created_at);
+            } else {
+                return false
+            }
+    });
 
 }
 
