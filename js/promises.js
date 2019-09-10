@@ -41,18 +41,24 @@
 function commit (userName) {
     fetch(`https://api.github.com/users/${userName}/events/public`, {headers: {"Authorization": `token ${gitToken}`}})
 
-        .then((response) => {
-            console.log(response);
+        .then(response => {
+            // console.log(response);
             return response.json();
-        }).then((data) => {
-            if(data.push){
-
-        console.log(data[0].created_at);
-            } else {
-                return false
-            }
-    });
+        }).then(data => data.filter(function(object){
+                // console.log(object);
+                return object.type === 'PushEvent';
+            })).then((obj) => console.log(obj[0].created_at));
 
 }
 
 console.log(commit("beverlyjaimes"));
+
+// console.log(data);
+// console.log(data[0].created_at);
+
+// if(data.type === PushEvent){
+//     console.log(data[0].created_at);
+// } else {
+//     return false
+// }
+// });
