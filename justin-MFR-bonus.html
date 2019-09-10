@@ -117,23 +117,26 @@
 
         // PROBLEM 4 - determine the average age of customers
 
-            const age = customers.map(customer => customer.age);
-            console.log(age);
+            // const age = customers.map(customer => customer.age);
+            // console.log(age);
+            //
+            // const ageSum = age.reduce((ageSum, customer) => {
+            //     return ageSum + customer
+            // }, 0);
+            //
+            // console.log(ageSum);
+            //
+            // const averageAge = ageSum / customers.length;
+            //
+            // console.log(averageAge);
 
-            const ageSum = age.reduce((ageSum, customer) => {
-                return ageSum + customer
-            }, 0);
-
-            console.log(ageSum);
-
-            const averageAge = ageSum / customers.length;
-
-            console.log(averageAge);
-
+            let averAge = customers.reduce ((x, customer) => x + customer.age,0);
+            console.log(averAge / customers.length);
 
         // PROBLEM 5 - create a function makeSuperPet() that takes in the pets array as input and returns a single pet object
         // with the following shape...
         /*
+
 
             {
                 name: ALL_PET_NAMES_CONCATENATED_INTO_A_SINGLE_STRING,
@@ -142,6 +145,9 @@
             }
 
          */
+
+
+        // const makeSuperPet =
 
         // PROBLEM 6 - take in an array of pets and return an array of the length of first names for pugs only
         // your output for the given input should be [3, 6] for 'Bud' and 'Bowser'
