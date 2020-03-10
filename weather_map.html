@@ -121,8 +121,7 @@
 
     map.addControl(new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-        marker:false
+
     }));
     var marker = new mapboxgl.Marker({
         draggable: true
@@ -130,7 +129,10 @@
         .setLngLat([long, lat])
         .addTo(map);
 
+<!--keeps marker from moving after scroll-->
 
+    map.addControl(new mapboxgl.NavigationControl());
+        map.scrollZoom.disable();
 
     map.on("moveend", function() {
         // console.log(map.getCenter());
